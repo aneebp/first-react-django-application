@@ -1,14 +1,9 @@
 import React from "react"
 import {BrowserRouter,Navigate,Route,Routes} from 'react-router-dom'
-// import Login from "./pages/login"
-// import Register from "./pages/register"
-// import Home from "./pages/home"
-// import NotFount from "./pages/notFount"
-// import ProtectedRoute from "./components/protectedRouter"
 import Login from './pages/login'
 import Home from './pages/home'
 import Register from './pages/register'
-import NotFount from './pages/notFount'
+import NotFound from './pages/notFound'
 import ProtectedRoute from './components/protectedRouter'
 
 
@@ -27,33 +22,16 @@ function App() {
     <>
        <BrowserRouter>
        <Routes>
-              <Route path="/login" element={
+              <Route path="/home" element={
               <ProtectedRoute>
                     <Home></Home>
               </ProtectedRoute>} />
-              <Route path="/home" element={<Login></Login> } />
-              <Route path="/registor" element={<Register></Register>} />
-              <Route path="*" element={<NotFount></NotFount>} /> 
+              <Route path="/login" element={<Login></Login> } />
+              <Route path="/logout" element={<Logout></Logout> } />
+              <Route path="/register" element={<Register></Register>} />
+              <Route path="*" element={<NotFound></NotFound>} /> 
        </Routes>
        </BrowserRouter>
-      {/* <BrowserRouter>
-      <Routes>
-        <Route
-        path="/"
-        element={
-          // only the login user can enter the home
-          <ProtectedRoute>
-            <Home></Home>
-          </ProtectedRoute>
-        }
-        >
-        </Route>
-          <Route path="/login" element={<Login></Login>}></Route>
-          <Route path="/registor" element={<Register></Register>}></Route>
-          <Route path="*" element={<NotFount></NotFount>}></Route>
-      </Routes>
-      </BrowserRouter> */}
-     
     </>
   )
 }
