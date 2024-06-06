@@ -19,7 +19,7 @@ class NoteListCreate(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        user = request.self.user
+        user = self.request.user
         return Notes.objects.filter(auther=user)
     
     def perform_create(self, serializer):
@@ -34,5 +34,5 @@ class DeleteNoteList(generics.DestroyAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        user = request.self.user
+        user = self.request.user
         return Notes.objects.filter(auther=user)
